@@ -1,70 +1,166 @@
-# Movie DB (Vite + React + TypeScript)
+# BingeWatchers (Vite + React + TypeScript)
 
-Breve progetto per l'esame che dimostra l'uso di React moderno: routing, gestione dello stato, chiamate asincrone e integrazione con API esterne.
+App full-featured per l'esame che dimostra React moderno, autenticazione, gestione dello stato centralizzata con Redux, routing dinamico e integrazione con The Movie Database (TMDB) API.
 
-Overview
+## Overview
 
-- App per cercare film usando The Movie Database (TMDB).
-- Visualizza risultati con paginazione, pagina dettaglio film e funzionalità di `Favorites` persistente in `localStorage`.
+- Ricerca film con paginazione e filtri per genere
+- Autenticazione con ruoli differenziati (User/Admin)
+- Gestione preferiti e watchlist personali
+- Sistema di review e rating per i film
+- Dashboard admin per la moderazione
+- Integrazione Redux con Thunk per azioni asincrone
+- 4 form validati per diverse funzionalità
+- Persistenza dati in localStorage
 
-Features
+## Features
 
-- Ricerca film con paginazione.
-- Visualizzazione dettaglio film (runtime, generi, overview).
-- Aggiungi/rimuovi film dai preferiti (persistiti in `localStorage`).
-- Routing con `react-router-dom`.
+### Autenticazione e Ruoli
 
-Tecnologie
+- Login system (fake authentication, localStorage-based)
+- Supporto per 2 ruoli: **User** e **Admin**
+- Admin vede sezioni aggiuntive (Admin Panel) con accesso a strumenti di moderazione
+- Logout e sessione persistente
 
-- React 18 + TypeScript
-- Vite (dev server / build)
-- Axios per le chiamate HTTP
-- TMDB API per dati film
+### Film e Ricerca
 
-Prerequisiti
+- Ricerca film in tempo reale con paginazione
+- Visualizzazione di film popolari nella home
+- Pagina dettaglio film con runtime, generi, overview
+- Rating stellare interattivo per ogni film
+- Organizzazione film per genere
 
-- Node.js 16+ e npm/yarn installati
-- Chiave API TMDB (registrati su https://www.themoviedb.org)
+### Funzionalità Utente
 
-Impostazione ambiente
+- **Favorites**: Salva film preferiti (persistito in localStorage)
+- **Watchlist**: Crea liste personalizzate di film da guardare
+- **Reviews**: Lascia recensioni e rating sui film
+- **Profilo**: Sezione per suggerimenti e feedback
+- **Support**: Form di contatto per segnalazioni
 
-1. Clona o copia la cartella del progetto.
-2. Crea un file `.env` nella root del progetto o copia `.env.example` e inserisci la tua chiave TMDB:
+### Admin Dashboard
+
+- Visualizzazione di tutte le reviews con statistiche
+- Moderazione: possibilità di eliminare reviews inappropriate
+- Stats: numero totale reviews, film recensiti, rating medio
+- Tabella gestionale con filtering e azioni batch
+
+### State Management
+
+- **Redux Toolkit** per gestione stato globale
+- **Redux Thunk** per azioni asincrone (caricamento dati TMDB)
+- **Context API** per autenticazione, watchlist, reviews, favorites
+- Sincronizzazione stato tra browser tab via localStorage
+
+### Form Validati
+
+1. **Review Form** - Valida author, text e rating
+2. **Watchlist Form** - Nome e descrizione della lista
+3. **Suggestions Form** - Raccoglie feedback miglioramenti
+4. **Support Form** - Contatti con email e subject
+
+## Tecnologie
+
+- React 18 + TypeScript (ES2020)
+- Vite 5.4 (build tool)
+- Redux Toolkit + Redux Thunk (state management)
+- React Router v6 (routing con HashRouter per GitHub Pages)
+- Axios (HTTP client)
+- Vitest (testing)
+- TMDB API (dati film)
+- CSS Modules (styling)
+
+## Architettura
 
 ```
-VITE_TMDB_KEY=your_tmdb_api_key_here
+src/
+├── api/              # TMDB API wrapper
+├── components/       # Componenti riusabili
+├── context/          # Auth, Favorites, Reviews, Watchlist contexts
+├── redux/            # Redux store, slices, hooks
+│   ├── slices/       # moviesSlice, searchSlice
+│   ├── store.ts
+│   └── hooks.ts
+├── pages/            # Pagine (Home, Search, Admin, etc.)
+├── styles/           # CSS globali
+└── App.tsx
 ```
 
-Installazione e avvio
+## Rotte
 
-Esegui i comandi seguenti nella cartella `movie-db`:
+- `/login` - Login (non protetto)
+- `/` - Home con film popolari (protetto)
+- `/search` - Ricerca film (protetto)
+- `/genres` - Film per genere (protetto)
+- `/movie/:id` - Dettaglio film (protetto)
+- `/favorites` - Film preferiti (protetto)
+- `/watchlists` - Gestione watchlist (protetto)
+- `/profile` - Suggerimenti miglioramenti (protetto)
+- `/support` - Form contatti (protetto)
+- `/admin` - Admin Dashboard (protetto, solo admin)
+
+## Prerequisiti
+
+- Node.js 16+
+- Chiave API TMDB da https://www.themoviedb.org
+
+## Installazione
 
 ```bash
+# 1. Clona il repository
+git clone https://github.com/Tizzzio/Progetto-Front-End-Esame-20-06.git
+cd Progetto-Front-End-Esame-20-06/movie-db
+
+# 2. Installa dipendenze
 npm install
-npm run dev
+
+# 3. Crea file .env
+cp .env.example .env
+# Modifica .env con la tua chiave TMDB
 ```
 
-Apri `http://localhost:5173` (o la porta mostrata dal server) nel browser.
+## Avvio
 
-Script utili
+```bash
+# Dev server
+npm run dev
 
-- `npm run dev` — avvia il dev server (Vite).
-- `npm run build` — build per produzione.
-- `npm run preview` — avvia server per vedere la build locale.
-- `npm run test` — esegue i test unitari con Vitest.
+# Build produzione
+npm run build
 
-File importanti
+# Test
+npm run test
 
-- [movie-db/src/api/tmdb.ts](src/api/tmdb.ts) — wrapper per le chiamate a TMDB.
-- [movie-db/src/context/FavoritesContext.tsx](src/context/FavoritesContext.tsx) — context per gestire i preferiti.
-- [movie-db/src/pages/Search.tsx](src/pages/Search.tsx) — pagina di ricerca con paginazione.
-- [movie-db/src/pages/MovieDetail.tsx](src/pages/MovieDetail.tsx) — dettaglio film.
+# Deploy su GitHub Pages
+npm run deploy
+```
 
-Note di sviluppo
+## Login di Test
 
-- Per Windows PowerShell usa i comandi mostrati sopra; se usi WSL o Git Bash i comandi sono equivalenti.
-- La chiave TMDB viene letta da `import.meta.env.VITE_TMDB_KEY` — non committare il file `.env` in git.
+- **Username**: qualsiasi valore
+- **Ruolo**: Scegli tra "User" o "Amministratore"
+- **Password**: non richiesta (fake auth)
 
-License
+Esempio: username `test`, role `Admin` per accedere al Admin Panel.
 
-- MIT
+## Configurazione Redux
+
+Lo store centralizza lo stato dei film e delle ricerche tramite Redux Thunk:
+
+- `moviesSlice` - Gestisce film popolari caricati da TMDB
+- `searchSlice` - Gestisce risultati ricerca con paginazione
+
+Custom hooks `useAppDispatch` e `useAppSelector` forniscono type safety.
+
+## Build e Deploy
+
+Il progetto è configurato per GitHub Pages:
+
+- Base path: `/Progetto-Front-End-Esame-20-06/`
+- Routing: HashRouter per evitare 404
+- Deploy: `npm run deploy` pubblica su gh-pages branch
+- Live: https://tizzzio.github.io/Progetto-Front-End-Esame-20-06/
+
+## Licenza
+
+MIT

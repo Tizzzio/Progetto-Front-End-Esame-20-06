@@ -51,10 +51,12 @@ export default function MovieDetail() {
 
   function submitReview(e: React.FormEvent) {
     e.preventDefault();
-    addReview(movie.id, { author, text: reviewText, rating: draftRating });
-    setReviewText("");
-    setAuthor("");
-    setDraftRating(4);
+    if (movie) {
+      addReview(movie.id, { author, text: reviewText, rating: draftRating });
+      setReviewText("");
+      setAuthor("");
+      setDraftRating(4);
+    }
   }
 
   return (

@@ -27,6 +27,20 @@ export default function Header() {
         <Link className={styles.link} to="/favorites">
           Favorites
         </Link>
+        <Link className={styles.link} to="/watchlists">
+          Watchlist
+        </Link>
+        <Link className={styles.link} to="/profile">
+          Consigli
+        </Link>
+        <Link className={styles.link} to="/support">
+          Support
+        </Link>
+        {user?.role === "admin" && (
+          <Link className={`${styles.link} ${styles.adminLink}`} to="/admin">
+            Admin Panel
+          </Link>
+        )}
       </nav>
       <div className={styles.userSection}>
         <span className={styles.username}>

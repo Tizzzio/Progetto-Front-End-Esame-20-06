@@ -9,6 +9,10 @@ import Genres from "./pages/GenresPage";
 import Search from "./pages/Search";
 import MovieDetail from "./pages/MovieDetail";
 import Favorites from "./pages/Favorites";
+import Profile from "./pages/Profile";
+import Watchlists from "./pages/Watchlists";
+import Support from "./pages/Support";
+import Admin from "./pages/Admin";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
@@ -62,6 +66,38 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Favorites />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/watchlists"
+            element={
+              <ProtectedRoute>
+                <Watchlists />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/support"
+            element={
+              <ProtectedRoute>
+                <Support />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
               </ProtectedRoute>
             }
           />

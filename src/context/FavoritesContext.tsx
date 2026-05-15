@@ -9,7 +9,7 @@ type FavoritesCtx = {
 
 const FavoritesContext = createContext<FavoritesCtx | undefined>(undefined);
 
-const STORAGE_KEY = "movie-db-favorites";
+const STORAGE_KEY = "bingewatchers-favorites";
 
 export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   const [favorites, setFavorites] = useState<Movie[]>(() => {

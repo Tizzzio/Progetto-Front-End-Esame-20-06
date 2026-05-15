@@ -46,7 +46,7 @@
   padding: 0.75rem;
   border: 1px solid #ff006e;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(20, 20, 30, 0.8);
   color: #fff;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -56,8 +56,19 @@
 .select:focus {
   outline: none;
   border-color: #ff006e;
-  background: rgba(255, 0, 110, 0.1);
+  background: rgba(255, 0, 110, 0.15);
   box-shadow: 0 0 8px rgba(255, 0, 110, 0.3);
+}
+
+.select {
+  cursor: pointer;
+  accent-color: #ff006e;
+}
+
+.select option {
+  background: #14141e;
+  color: #fff;
+  padding: 0.5rem;
 }
 
 .button {

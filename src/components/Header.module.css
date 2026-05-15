@@ -66,3 +66,9 @@
 .logoutBtn:active {
   transform: translateY(0);
 }
+
+.adminLink {
+  background: linear-gradient(135deg, #ff006e, #8338ec);
+  border-color: #ff006e;
+  font-weight: 600;
+}

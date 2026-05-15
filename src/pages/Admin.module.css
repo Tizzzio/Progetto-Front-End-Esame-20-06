@@ -1,0 +1,95 @@
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.statCard {
+  background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+  border-radius: 8px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(255, 0, 110, 0.2);
+}
+
+.statCard h3 {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.statValue {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.reviewsTable {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.reviewsTable table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.reviewsTable thead {
+  background: rgba(255, 0, 110, 0.1);
+  border-bottom: 2px solid #ff006e;
+}
+
+.reviewsTable th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #ff006e;
+}
+
+.reviewsTable td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reviewsTable tbody tr:hover {
+  background: rgba(255, 0, 110, 0.05);
+}
+
+.textCell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dateCell {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.ratingBadge {
+  background: rgba(255, 0, 110, 0.2);
+  color: #ff006e;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.deleteBtn {
+  background: #ff006e;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background: #d90052;
+  transform: scale(1.05);
+}

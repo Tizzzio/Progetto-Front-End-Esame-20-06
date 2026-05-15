@@ -28,7 +28,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const newUser: User = {
       id: `user_${Date.now()}`,
       username,
-      email: `${username}@moviedb.local`,
+      email: `${username}@bingewatchers.local`,
       role,
     };
     setUser(newUser);

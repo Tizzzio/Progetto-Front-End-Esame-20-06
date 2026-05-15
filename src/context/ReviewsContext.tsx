@@ -12,7 +12,7 @@ type ReviewsContextValue = {
   getReviewsByMovie: (movieId: number) => UserReview[];
 };
 
-const STORAGE_KEY = "movie-db-reviews-v1";
+const STORAGE_KEY = "bingewatchers-reviews-v1";
 
 const ReviewsContext = createContext<ReviewsContextValue | undefined>(undefined);
 

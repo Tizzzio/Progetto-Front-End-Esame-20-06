@@ -26,7 +26,7 @@ export default function Login() {
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
-        <h1>Movie DB Login</h1>
+        <h1>BingeWatchers Login</h1>
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
             <label htmlFor="username">Username:</label>
@@ -42,12 +42,7 @@ export default function Login() {
 
           <div className={styles.formGroup}>
             <label htmlFor="role">Ruolo:</label>
-            <select
-              id="role"
-              value={role}
-              onChange={(e) => setRole(e.target.value as UserRole)}
-              className={styles.select}
-            >
+            <select id="role" value={role} onChange={(e) => setRole(e.target.value as UserRole)} className={styles.select}>
               <option value="user">Utente normale</option>
               <option value="admin">Amministratore</option>
             </select>
@@ -61,9 +56,11 @@ export default function Login() {
         </form>
 
         <div className={styles.info}>
-          <p><strong>Demo Login:</strong></p>
-          <p>Username: qualsiasi testo</p>
-          <p>Password: non richiesta (autenticazione fake)</p>
+          <p>
+            <strong>Demo Login:</strong>
+          </p>
+          <p>Username: qualsiasi</p>
+          <p>Password: non richiesta</p>
         </div>
       </div>
     </div>
