@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(19, 24, 44, 0.8);
+  color: #f1f4ff;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input:focus {
+  border-color: #7384ff;
+  box-shadow: 0 0 0 3px rgba(124, 137, 255, 0.2);
+}
+
+.button {
+  padding: 10px 14px;
+  border-radius: 10px;
+}

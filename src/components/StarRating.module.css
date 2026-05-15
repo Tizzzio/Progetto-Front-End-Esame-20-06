@@ -1,0 +1,37 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star {
+  border: none;
+  background: transparent;
+  color: #49506a;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.star:disabled {
+  cursor: default;
+}
+
+.star:hover:not(:disabled) {
+  transform: scale(1.12);
+}
+
+.active {
+  color: #ffcf33;
+}
+
+.sm .star {
+  font-size: 0.95rem;
+}
+
+.md .star {
+  font-size: 1.3rem;
+}

@@ -1,0 +1,48 @@
+.section {
+  margin-top: 24px;
+  scroll-margin-top: 88px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.kicker {
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: #9db0ff;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.back {
+  color: #dbe2ff;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(17, 22, 40, 0.65);
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.back:hover {
+  transform: translateY(-1px);
+  background: rgba(31, 38, 70, 0.82);
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+  }
+}

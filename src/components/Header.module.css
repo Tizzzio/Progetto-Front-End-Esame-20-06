@@ -1,0 +1,33 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0.95rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  background: rgba(13, 17, 34, 0.7);
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #d5dcff;
+  border: 1px solid transparent;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.link:hover {
+  background: rgba(123, 135, 255, 0.2);
+  border-color: var(--border);
+  transform: translateY(-1px);
+}

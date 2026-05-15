@@ -1,0 +1,40 @@
+.page {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.headerCard {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.content {
+  display: grid;
+  gap: 18px;
+}
+
+.hero {
+  display: grid;
+  gap: 6px;
+}
+
+.summary {
+  margin-bottom: 0;
+}
+
+.mobileOnly {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .mobileOnly {
+    display: block;
+  }
+}

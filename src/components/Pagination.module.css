@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 18px;
+  align-items: center;
+}
+
+.count {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(29, 34, 58, 0.75);
+}
+
+.button {
+  padding: 8px 12px;
+  border-radius: 10px;
+}
