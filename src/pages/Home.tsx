@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <section id="top">
       <h1>BingeWatchers</h1>
-      <p>Film popolari, generi e recensioni in un'"'"'unica pagina.</p>
+      <p>Film popolari</p>
       <p className="badge">Card · rating · recensioni</p>
       <p>{heroSummary}</p>
 
