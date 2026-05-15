@@ -5,15 +5,18 @@ import App from "./App";
 import "./styles/global.css";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { ReviewsProvider } from "./context/ReviewsContext";
+import { AuthProvider } from "./context/AuthContext";
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ReviewsProvider>
-      <FavoritesProvider>
-        <HashRouter>
-          <App />
-        </HashRouter>
-      </FavoritesProvider>
-    </ReviewsProvider>
+    <AuthProvider>
+      <ReviewsProvider>
+        <FavoritesProvider>
+          <HashRouter>
+            <App />
+          </HashRouter>
+        </FavoritesProvider>
+      </ReviewsProvider>
+    </AuthProvider>
   </React.StrictMode>,
 );
